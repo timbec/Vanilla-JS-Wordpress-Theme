@@ -46,7 +46,6 @@ export default class Helpers {
             lastModified = Helpers.formatDate( content.modified ),
             author = content._embedded.author[ 0 ].name,
             featuredImg = '';
-            console.log(content);
         if ( content._embedded[ 'wp:featuredmedia' ] ) {
             featuredImg = content._embedded[ 'wp:featuredmedia' ][ 0 ].source_url;
         }
@@ -83,7 +82,6 @@ export default class Helpers {
             lastModified = Helpers.formatDate( content.modified ),
             author = content._embedded.author[ 0 ].name,
             featuredImg = '';
-            console.log(content);
         if ( content._embedded[ 'wp:featuredmedia' ] ) {
             featuredImg = content._embedded[ 'wp:featuredmedia' ][ 0 ].source_url;
         }

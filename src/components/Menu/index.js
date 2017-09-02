@@ -13,7 +13,6 @@ export default class Menu {
 
 		pages.fetch({ data: { parent: 0, orderby: 'menu_order', order: 'asc' } })
       .done( () => {
-         console.log(pages);
 				pages.each( content => {
 
                     MenuItem.render( content.attributes );
