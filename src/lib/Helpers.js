@@ -2,6 +2,12 @@ import config from './config';
 
 export default class Helpers {
 
+   static escapeHTML(raw) {
+    return raw.replace(/[&<>"']/g, function onReplace(match) {
+        return '&#' + match.charCodeAt(0) + ';';
+    });
+}
+
     /**
      * getTitleMarkup - Get the markup for a content title
      *
@@ -15,6 +21,8 @@ export default class Helpers {
         const titleEl = document.createElement( titleTag ),
             linkEl = document.createElement( 'a' ),
             title = document.createTextNode( content.title.rendered );
+            // Helpers.escapeHTML(title);
+
 
         titleEl.classList.add( 'entry-title' );
 
@@ -51,11 +59,11 @@ export default class Helpers {
         }
 
         contentEl.classList.add( 'entry-content' );
-        if ( 'post' == content.type ) {
-            contentMarkup += `<p class="meta">Author: ${author} | ${date}</p>`;
-        }
         if ( featuredImg ) {
             contentMarkup += `<img class="feature" src="${featuredImg}">`;
+        }
+        if ( 'post' == content.type ) {
+            contentMarkup += `<p class="meta">Author: ${author} | ${date}</p>`;
         }
         contentMarkup += content.content.rendered;
         if ( 'page' == content.type ) {
@@ -87,11 +95,12 @@ export default class Helpers {
         }
 
         excerptEl.classList.add( 'entry-content' );
-        if ( 'post' == content.type ) {
-            excerptMarkup += `<p class="meta">Author: ${author} | ${date}</p>`;
-        }
+
         if ( featuredImg ) {
             excerptMarkup += `<img class="feature" src="${featuredImg}">`;
+        }
+        if ( 'post' == content.type ) {
+            excerptMarkup += `<p class="meta">Author: ${author} | ${date}</p>`;
         }
         excerptMarkup += content.excerpt.rendered;
         if ( 'page' == content.type ) {

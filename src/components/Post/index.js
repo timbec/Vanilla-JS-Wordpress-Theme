@@ -16,7 +16,7 @@ export default class Post {
 		posts.fetch({ data: { _embed: 1, slug: slug, per_page: 1 } }).done( () => {
 				//clearPosts();
 				posts.each( post => {
-               console.log(post.attributes.title.rendered);
+      
                Helpers.renderContent( post.attributes, 'h1', false );
                Comments.render( post.id );
             });

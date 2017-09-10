@@ -30,7 +30,7 @@
             </div>
    		</header>
 
-   	<nav id="mainNav">
+   	<nav id="mainNav" class="menu">
       	  <ul>
       	  </ul>
    	  </nav>

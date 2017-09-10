@@ -16,8 +16,7 @@ export default class Categories {
       let categories = new wp.api.collections.Categories();
 
 		categories.fetch({ data: { _embed: 1, per_page: 10 } }).done( () => {
-				//clearPosts();
-				// categories.each( category => {
+
                const sidebar = config.sidebar,
                      widget = document.createElement( 'div' );
                let widgetMarkup = '';
@@ -26,12 +25,11 @@ export default class Categories {
                widgetMarkup += '<ul class="categories"></ul>';
 
                widget.innerHTML = widgetMarkup;
-               sidebar.appendChild( widget );
+               //sidebar.appendChild( widget );
 
                let renderedCategories = categories.map( category => {
-                  Category.render( category.attributes );
+                  //Category.render( category.attributes );
                } );
-            // });
          });
    }
 }

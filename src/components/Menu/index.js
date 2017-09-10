@@ -9,17 +9,26 @@ export default class Menu {
     *
     */
     static render() {
-      let pages = new wp.api.collections.Pages();
+      // let categories = new wp.api.collections.Categories();
+      // console.log(categories);
+      //
+		// categories.fetch({ data: { _embed: 1, per_page: 10} })
+      // .done( () => {
+      //    //console.log(categories);
+      //    let renderedMenu = categories.map( category => {
+      //
+      //       MenuItem.render( category.attributes );
+      //    } );
+		// });
 
-		pages.fetch({ data: { parent: 0, orderby: 'menu_order', order: 'asc' } })
+      let writingItems = new wp.api.collections.WritingType();
+
+      writingItems.fetch({ data: { _embed: 1 } })
       .done( () => {
-				pages.each( content => {
-
-                    MenuItem.render( content.attributes );
-
-            });
-		});
-
+         let renderedMenu = writingItems.map( writingItem => {
+            MenuItem.render( writingItem.attributes );
+         })
+      });
    }
 
    }

@@ -22,3 +22,8 @@ function wt_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'wt_scripts' );
+
+/**
+ * Custom Post Types.
+ */
+require get_parent_theme_file_path( '/cpt.php' );

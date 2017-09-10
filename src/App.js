@@ -9,7 +9,6 @@ export default class App {
      * @return {void} Not meant to return
      */
     static init() {
-        console.log('Is this for freaking real??');
         Header.render();
         Menu.render();
         Router.init();
