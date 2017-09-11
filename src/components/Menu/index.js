@@ -21,12 +21,14 @@ export default class Menu {
       //    } );
 		// });
 
-      let writingItems = new wp.api.collections.WritingType();
+      let pages = new wp.api.collections.Pages();
 
-      writingItems.fetch({ data: { _embed: 1 } })
+      pages.fetch({ data: { _embed: 1, per_page: 10, order_by: 'menu_order'  } })
       .done( () => {
-         let renderedMenu = writingItems.map( writingItem => {
-            MenuItem.render( writingItem.attributes );
+         let renderedMenu = pages.map( page => {
+
+            console.log(page.attributes );
+            MenuItem.render( page.attributes );
          })
       });
    }
