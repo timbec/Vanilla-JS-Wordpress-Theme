@@ -27,7 +27,6 @@ export default class Menu {
       .done( () => {
          let renderedMenu = pages.map( page => {
 
-            console.log(page.attributes );
             MenuItem.render( page.attributes );
          })
       });

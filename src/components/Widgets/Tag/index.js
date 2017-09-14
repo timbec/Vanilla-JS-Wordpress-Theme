@@ -15,7 +15,7 @@ export default class Tags {
 
       let tags = new wp.api.collections.Tags();
 
-		tags.fetch().done( () => {
+		tags.fetch({ data: { _embed: 1, per_page: 100 }}).done( () => {
 
                const sidebar = config.sidebar,
                      widget = document.createElement( 'div' );
@@ -28,6 +28,7 @@ export default class Tags {
                sidebar.appendChild( widget );
 
                let renderedTags = tags.map( tag => {
+                  console.log(tag.attributes.name);
                   Tag.render( tag.attributes );
                } );
          });

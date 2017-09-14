@@ -82,14 +82,17 @@ export default class Router {
              TagWidget.render();
 
               } else if( '/tag' == slug.substring( 0, 4 )) {
-                let tagSlug = slug.substring( 5 ); 
+                let tagSlug = slug.substring( 5 );
                 Helpers.clearContent();
                 config.body.classList.add( 'home' );
                 Tag.render( tagSlug );
                 CategoryWidget.render();
                 TagWidget.render();
-             }
-             else {
+             } else if( '/fiction' == slug.substring( 0, 8)) {
+                console.log('I only want a certain type of writing type or category. First the title of the category, then the posts associated with that category');
+                
+
+             } else {
                 Helpers.clearPage();
                 Page.render( slug );
              }
